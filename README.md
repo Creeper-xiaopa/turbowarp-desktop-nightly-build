@@ -14,4 +14,4 @@
 [stars-shield]: https://img.shields.io/github/stars/Creeper-xiaopa/turbowarp-desktop-nightly-build.svg?style=flat-square
 [stars-url]: https://github.com/Creeper-xiaopa/turbowarp-desktop-nightly-build/stargazers
 [issues-shield]: https://img.shields.io/github/issues/Creeper-xiaopa/turbowarp-desktop-nightly-build.svg?style=flat-square
-[issues-url]: https://img.shields.io/github/issues/Creeper-xiaopa/turbowarp-desktop-nightly-build.svg
+[issues-url]: https://github.com/Creeper-xiaopa/turbowarp-desktop-nightly-build/issues
