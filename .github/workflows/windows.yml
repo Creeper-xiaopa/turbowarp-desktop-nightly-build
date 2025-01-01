@@ -25,40 +25,40 @@ jobs:
 
       - name: 克隆Desktop仓库
         run: |
-          git clone --recursive https://github.com/TurboWarp/desktop $env:USERPROFILE	urbowarp-desktop
-          cd $env:USERPROFILE	urbowarp-desktop
+          git clone --recursive https://github.com/TurboWarp/desktop %USERPROFILE%	urbowarp-desktop
+          cd %USERPROFILE%	urbowarp-desktop
           git submodule init
           git submodule update
 
       - name: npm安装环境
         run: |
-          cd $env:USERPROFILE	urbowarp-desktop
+          cd %USERPROFILE%	urbowarp-desktop
           npm ci
           npm run fetch
 
       - name: 构建
         run: |
-          cd $env:USERPROFILE	urbowarp-desktop
+          cd %USERPROFILE%	urbowarp-desktop
           npm run webpack:prod
 
       - name: 打包x64二进制压缩包
         run: |
-          cd $env:USERPROFILE	urbowarp-desktop
+          cd %USERPROFILE%	urbowarp-desktop
           npx electron-builder --windows zip --x64
 
       - name: 打包x64二进制安装包
         run: |
-          cd $env:USERPROFILE	urbowarp-desktop
+          cd %USERPROFILE%	urbowarp-desktop
           npx electron-builder --windows nsis --x64
 
       - name: 打包ia32二进制压缩包
         run: |
-          cd $env:USERPROFILE	urbowarp-desktop
+          cd %USERPROFILE%	urbowarp-desktop
           npx electron-builder --windows zip --ia32
 
       - name: 打包ia32二进制安装包
         run: |
-          cd $env:USERPROFILE	urbowarp-desktop
+          cd %USERPROFILE%	urbowarp-desktop
           npx electron-builder --windows nsis --ia32
 
     permissions:
