@@ -1,0 +1,59 @@
+name: Windows NSIS
+
+env:
+  TZ: Asia/Shanghai
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 21 * * *"
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: 预备Node环境
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+
+      - name: 配置 Git 信息
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - uses: actions/checkout@v4
+
+      - name: 克隆Desktop仓库
+        run: |
+          git clone --recursive https://github.com/TurboWarp/desktop turbowarp-desktop
+          cd turbowarp-desktop
+          git submodule init
+          git submodule update
+
+      - name: npm安装环境
+        run: |
+          npm ci
+          npm run fetch
+
+      - name: 构建
+        run: |
+          npm run webpack:prod
+
+      - name: 打包x64二进制压缩包
+        run: |
+          npx electron-builder --windows zip --x64
+
+      - name: 打包x64二进制安装包
+        run: |
+          npx electron-builder --windows nsis --x64
+
+      - name: 打包ia32二进制压缩包
+        run: |
+          npx electron-builder --windows zip --ia32
+
+      - name: 打包ia32二进制安装包
+        run: |
+          npx electron-builder --windows nsis --ia32
+
+    permissions:
+      contents: write
