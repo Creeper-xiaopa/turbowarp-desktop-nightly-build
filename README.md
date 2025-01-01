@@ -1,6 +1,6 @@
 # TurboWarp Nightly 构建
 > 每夜构建最新版的 TurboWarp Desktop!
-<br>
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
