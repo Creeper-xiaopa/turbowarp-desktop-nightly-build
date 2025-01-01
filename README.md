@@ -1,2 +1,2 @@
-# turbowarp-desktop-nightly-build
-每夜构建的TurboWarp桌面版 (自用)
+# TurboWarp Nightly 构建
+> 每夜构建最新版的 TurboWarp Desktop!
